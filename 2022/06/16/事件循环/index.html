@@ -16,22 +16,24 @@
   <meta name="author" content="Vitap">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第一篇！范玉琳是🐷">
+    <meta name="description" content="栈 堆 队列  栈：函数调用 堆：对象分配 队列：消息处理 函数的处理会一直进行到执行栈再次为空为止；然后事件循环将会处理队列中的下一个消息（如果还有的话）。 事件循环 函数 setTimeout 接受两个参数：待加入队列的消息和一个时间值（可选，默认为 0）。这个时间值代表了消息被实际加入到队列的最小延迟时间。如果队列中没有其它消息并且栈为空，在这段延迟时间过去之后，消息会被马上处理。但是，如果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="aloha">
-<meta property="og:url" content="https://vitap7.github.io/2022/06/13/aloha/index.html">
+<meta property="og:title" content="事件循环">
+<meta property="og:url" content="https://vitap7.github.io/2022/06/16/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="Vitap&#39;s Blog">
-<meta property="og:description" content="第一篇！范玉琳是🐷">
+<meta property="og:description" content="栈 堆 队列  栈：函数调用 堆：对象分配 队列：消息处理 函数的处理会一直进行到执行栈再次为空为止；然后事件循环将会处理队列中的下一个消息（如果还有的话）。 事件循环 函数 setTimeout 接受两个参数：待加入队列的消息和一个时间值（可选，默认为 0）。这个时间值代表了消息被实际加入到队列的最小延迟时间。如果队列中没有其它消息并且栈为空，在这段延迟时间过去之后，消息会被马上处理。但是，如果">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-13T02:39:39.000Z">
-<meta property="article:modified_time" content="2022-06-16T09:05:48.077Z">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/17124/The_Javascript_Runtime_Environment_Example.svg">
+<meta property="article:published_time" content="2022-06-16T09:03:21.000Z">
+<meta property="article:modified_time" content="2022-06-16T09:03:37.559Z">
 <meta property="article:author" content="Vitap">
-<meta property="article:tag" content="fylsz">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/17124/The_Javascript_Runtime_Environment_Example.svg">
   
   
   
-  <title>aloha - Vitap&#39;s Blog</title>
+  <title>事件循环 - Vitap&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="aloha"></span>
+            <span id="subtitle" data-typed-text="事件循环"></span>
           
         </div>
 
@@ -205,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-13 10:39" pubdate>
-          2022年6月13日 上午
+        <time datetime="2022-06-16 17:03" pubdate>
+          2022年6月16日 下午
         </time>
       </span>
     
@@ -217,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10 字
+          1.1k 字
         
       </span>
     
@@ -228,7 +230,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -274,11 +276,23 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">aloha</h1>
+            <h1 style="display: none">事件循环</h1>
             
             <div class="markdown-body">
               
-              <p>第一篇！范玉琳是🐷</p>
+              <h2 id="栈-堆-队列"><a class="header-anchor" href="#栈-堆-队列"></a>栈 堆 队列</h2>
+<p><img src="https://mdn.mozillademos.org/files/17124/The_Javascript_Runtime_Environment_Example.svg" srcset="/img/loading.gif" lazyload alt="Stack, heap, queue"></p>
+<p>栈：函数调用</p>
+<p>堆：对象分配</p>
+<p>队列：消息处理</p>
+<p>函数的处理会一直进行到执行栈再次为空为止；然后事件循环将会处理队列中的下一个消息（如果还有的话）。</p>
+<h2 id="事件循环"><a class="header-anchor" href="#事件循环"></a>事件循环</h2>
+<p>函数 <code>setTimeout</code> 接受两个参数：待加入队列的消息和一个时间值（可选，默认为 0）。这个时间值代表了消息被实际加入到队列的<strong>最小</strong>延迟时间。如果队列中没有其它消息并且栈为空，在这段延迟时间过去之后，消息会被马上处理。但是，如果有其它消息，<code>setTimeout</code> 消息必须等待其它消息处理完。因此第二个参数仅仅表示最少延迟时间，而非确切的等待时间。</p>
+<p>下面的例子演示了这个概念（<code>setTimeout</code> 并不会在计时器到期之后直接执行）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getSeconds</span>();<br><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 输出 &quot;2&quot;，表示回调函数并没有在 500 毫秒之后立即执行</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Ran after &quot;</span> + (<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getSeconds</span>() - s) + <span class="hljs-string">&quot; seconds&quot;</span>);<br>&#125;, <span class="hljs-number">500</span>);<br><br><span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>) &#123;<br>  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">getSeconds</span>() - s &gt;= <span class="hljs-number">2</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Good, looped for 2 seconds&quot;</span>);<br>    <span class="hljs-keyword">break</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>基本上，<code>setTimeout</code> 需要等待当前队列中所有的消息都处理完毕之后才能执行，即使已经超出了由第二参数所指定的时间。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js">(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是开始&#x27;</span>);<br><br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">cb</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是来自第一个回调的消息&#x27;</span>);<br>  &#125;);<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是一条消息&#x27;</span>);<br><br>  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">cb1</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是来自第二个回调的消息&#x27;</span>);<br>  &#125;, <span class="hljs-number">0</span>);<br><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;这是结束&#x27;</span>);<br><br>&#125;)();<br><br><span class="hljs-comment">// &quot;这是开始&quot;</span><br><span class="hljs-comment">// &quot;这是一条消息&quot;</span><br><span class="hljs-comment">// &quot;这是结束&quot;</span><br><span class="hljs-comment">// &quot;这是来自第一个回调的消息&quot;</span><br><span class="hljs-comment">// &quot;这是来自第二个回调的消息&quot;</span><br></code></pre></td></tr></table></figure>
+<p>JavaScript的事件循环模型与许多其他语言不同的一个非常有趣的特性是，它永不阻塞。</p>
 
               
             </div>
@@ -290,7 +304,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/fylsz/">#fylsz</a>
+        <a href="/tags/JavaScript/">#JavaScript</a>
       
     </div>
   
@@ -302,8 +316,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>aloha</div>
-      <div>https://vitap7.github.io/2022/06/13/aloha/</div>
+      <div>事件循环</div>
+      <div>https://vitap7.github.io/2022/06/16/事件循环/</div>
     </div>
     <div class="license-meta">
       
@@ -315,7 +329,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月13日</div>
+          <div>2022年6月16日</div>
         </div>
       
       
@@ -345,15 +359,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/16/React-1/" title="React 1">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">React 1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/06/16/Promise/" title="Promise">
+                        <span class="hidden-mobile">Promise</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
