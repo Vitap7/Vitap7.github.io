@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>LC 206.反转链表</title>
+    <link href="/2022/06/21/LC-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
+    <url>/2022/06/21/LC-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述"><a class="header-anchor" href="#题目描述"></a>题目描述</h3><blockquote><p>给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。</p><p>示例 1：</p><p>输入：head = [1,2,3,4,5]<br>输出：[5,4,3,2,1]<br>示例 2：</p><p>输入：head = [1,2]<br>输出：[2,1]<br>示例 3：</p><p>输入：head = []<br>输出：[]</p><p>提示：</p><p>链表中节点的数目范围是 [0, 5000]<br>-5000 &lt;= Node.val &lt;= 5000</p><p>进阶：链表可以选用迭代或递归方式完成反转。你能否用两种方法解决这道题？</p></blockquote><p><em>来源：力扣（LeetCode）</em><br><em>链接：<a href="https://leetcode.cn/problems/reverse-linked-list">https://leetcode.cn/problems/reverse-linked-list</a></em><br><em>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</em></p><h3 id="题解"><a class="header-anchor" href="#题解"></a>题解</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * function ListNode(val, next) &#123;</span><br><span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span><br><span class="hljs-comment"> *     this.next = (next===undefined ? null : next)</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">ListNode</span>&#125; <span class="hljs-variable">head</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">ListNode</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> reverseList = <span class="hljs-keyword">function</span>(<span class="hljs-params">head</span>) &#123;<br>    <span class="hljs-keyword">if</span>(!head || !head.<span class="hljs-property">next</span>) <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-keyword">let</span> p1 = <span class="hljs-literal">null</span>,<br>        p2 = head,<br>        tmp = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">while</span>(p2)&#123;<br>        tmp = p2.<span class="hljs-property">next</span>;<br>        p2.<span class="hljs-property">next</span> = p1;<br>        p1 = p2;<br>        p2 = tmp;<br>    &#125;<br>    <span class="hljs-keyword">return</span> p1;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LC 154.寻找旋转排序数组中的最小值 II</title>
     <link href="/2022/06/21/LC-154-%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC-II/"/>
     <url>/2022/06/21/LC-154-%E5%AF%BB%E6%89%BE%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC-II/</url>
