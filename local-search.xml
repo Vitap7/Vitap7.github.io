@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>LC 513.找树左下角的值</title>
+    <link href="/2022/06/22/LC-513-%E6%89%BE%E6%A0%91%E5%B7%A6%E4%B8%8B%E8%A7%92%E7%9A%84%E5%80%BC/"/>
+    <url>/2022/06/22/LC-513-%E6%89%BE%E6%A0%91%E5%B7%A6%E4%B8%8B%E8%A7%92%E7%9A%84%E5%80%BC/</url>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述"><a class="header-anchor" href="#题目描述"></a>题目描述</h3><blockquote><p>给定一个二叉树的 根节点 root，请找出该二叉树的 最底层 最左边 节点的值。</p><p>假设二叉树中至少有一个节点。</p><p>示例 1:</p><p>​2</p><p>13</p><p>输入: root = [2,1,3]<br>输出: 1<br>示例 2:</p><p>​1</p><p>​23</p><p>​456</p><p>​7</p><p>输入: [1,2,3,4,null,5,6,null,null,7]<br>输出: 7</p><p>提示:</p><p>二叉树的节点个数的范围是 [1,10<sup>4</sup>]<br>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</p></blockquote><p><em>来源：力扣（LeetCode）</em><br><em>链接：<a href="https://leetcode.cn/problems/find-bottom-left-tree-value">https://leetcode.cn/problems/find-bottom-left-tree-value</a></em><br><em>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</em></p><h3 id="题解"><a class="header-anchor" href="#题解"></a>题解</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * function TreeNode(val, left, right) &#123;</span><br><span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span><br><span class="hljs-comment"> *     this.left = (left===undefined ? null : left)</span><br><span class="hljs-comment"> *     this.right = (right===undefined ? null : right)</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">TreeNode</span>&#125; <span class="hljs-variable">root</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> findBottomLeftValue = <span class="hljs-keyword">function</span>(<span class="hljs-params">root</span>) &#123;<br>    <span class="hljs-keyword">if</span>(!root.<span class="hljs-property">left</span>&amp;!root.<span class="hljs-property">right</span>) <span class="hljs-keyword">return</span> root.<span class="hljs-property">val</span>;<br>    <span class="hljs-keyword">let</span> queue = [],<br>        node = <span class="hljs-literal">null</span>;<br>    queue.<span class="hljs-title function_">push</span>(root);<br>    <span class="hljs-keyword">while</span>(queue.<span class="hljs-property">length</span>)&#123;<br>        node = queue.<span class="hljs-title function_">shift</span>();<br>        <span class="hljs-keyword">if</span>(node.<span class="hljs-property">right</span>)&#123;<br>            queue.<span class="hljs-title function_">push</span>(node.<span class="hljs-property">right</span>);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(node.<span class="hljs-property">left</span>)&#123;<br>            queue.<span class="hljs-title function_">push</span>(node.<span class="hljs-property">left</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> node.<span class="hljs-property">val</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>LeetCode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LC 1009.十进制整数的反码</title>
     <link href="/2022/06/21/LC-1009-%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B4%E6%95%B0%E7%9A%84%E5%8F%8D%E7%A0%81/"/>
     <url>/2022/06/21/LC-1009-%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B4%E6%95%B0%E7%9A%84%E5%8F%8D%E7%A0%81/</url>
